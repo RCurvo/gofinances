@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { HighlightCard } from '../../components/HighlightCard'
 import {
   TransactionCard,
@@ -62,9 +63,11 @@ export function Dashboard() {
               <UserName>Rodrigo</UserName>
             </User>
           </UserInfo>
-          <LogoutButton>
-            <Icon name="power" />
-          </LogoutButton>
+          <GestureHandlerRootView>
+            <LogoutButton>
+              <Icon name="power" />
+            </LogoutButton>
+          </GestureHandlerRootView>
         </UserWrapper>
       </Header>
       <HighLightCards>
