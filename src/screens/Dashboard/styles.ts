@@ -3,6 +3,7 @@ import { FlatList, FlatListProps } from 'react-native'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { Feather } from '@expo/vector-icons'
 import { DataListProps } from '.'
+import { BorderlessButton } from 'react-native-gesture-handler'
 
 export const Container = styled.View`
   flex: 1;
@@ -91,3 +92,5 @@ export const TransactionList = styled(
     props: FlatListProps<DataListProps>,
   ) => FlatList<DataListProps>,
 )``
+
+export const LogoutButton = styled(BorderlessButton)``
