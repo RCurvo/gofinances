@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useState } from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { HighlightCard } from '../../components/HighlightCard'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -24,7 +25,6 @@ import {
 } from './styles'
 import { useFocusEffect } from '@react-navigation/native'
 import { ActivityIndicator } from 'react-native'
-import { LastTransaction } from '../../components/HighlightCard/styles'
 
 export interface DataListProps extends TransactionCardProps {
   id: string
@@ -199,20 +199,20 @@ export function Dashboard() {
             <HighlightCard
               type="up"
               title="Entradas"
-              amount={HighlightData?.entries.amount}
-              lastTransaction={HighlightData?.entries.lastTransaction}
+              amount={HighlightData?.entries.amount!}
+              lastTransaction={HighlightData?.entries.lastTransaction!}
             />
             <HighlightCard
               type="down"
               title="Saídas"
-              amount={HighlightData?.expenses.amount}
-              lastTransaction={HighlightData?.expenses.lastTransaction}
+              amount={HighlightData?.expenses.amount!}
+              lastTransaction={HighlightData?.expenses.lastTransaction!}
             />
             <HighlightCard
               type="total"
               title="Total"
-              amount={HighlightData?.total.amount}
-              lastTransaction={HighlightData?.total.lastTransaction}
+              amount={HighlightData?.total.amount!}
+              lastTransaction={HighlightData?.total.lastTransaction!}
             />
           </HighLightCards>
           <Transactions>
