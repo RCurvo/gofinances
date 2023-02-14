@@ -25,6 +25,7 @@ import {
 } from './styles'
 import { useFocusEffect } from '@react-navigation/native'
 import { ActivityIndicator } from 'react-native'
+import { useAuth } from '../../hooks/Auth'
 
 export interface DataListProps extends TransactionCardProps {
   id: string
@@ -47,6 +48,8 @@ export function Dashboard() {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState<DataListProps[]>([])
   const [HighlightData, setHighlightData] = useState<HighlightData>()
+
+  const { sigInOut } = useAuth()
 
   function getLastTransactionDate(
     collection: DataListProps[],
@@ -163,7 +166,7 @@ export function Dashboard() {
                 </User>
               </UserInfo>
               <GestureHandlerRootView>
-                <LogoutButton>
+                <LogoutButton onPress={sigInOut}>
                   <Icon name="power" />
                 </LogoutButton>
               </GestureHandlerRootView>

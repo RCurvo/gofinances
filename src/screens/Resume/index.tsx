@@ -49,11 +49,9 @@ export function Resume() {
   function handleChangeDate(action: 'next' | 'prev') {
     if (action === 'next') {
       const newDate = addMonths(selectedDate, 1)
-      console.log(newDate)
       setSelectedDate(newDate)
     } else {
       const newDate = subMonths(selectedDate, 1)
-      console.log(newDate)
       setSelectedDate(newDate)
     }
   }
