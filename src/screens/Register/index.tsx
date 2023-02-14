@@ -81,7 +81,6 @@ export function Register() {
       const dataFormated = [...currentData, newTransaction]
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormated))
-
       reset()
       setTransactionType('')
       setCategory({
@@ -101,7 +100,6 @@ export function Register() {
   function handleCloseSelectCategoryModal() {
     setCategoryModalOpen(false)
   }
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
