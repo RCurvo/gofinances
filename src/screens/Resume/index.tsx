@@ -22,6 +22,7 @@ import {
 } from './styles'
 import { addMonths, subMonths, format } from 'date-fns'
 import { ActivityIndicator } from 'react-native'
+import { useAuth } from '../../hooks/Auth'
 
 interface TransactionData {
   type: 'up' | 'down'
@@ -44,6 +45,8 @@ export function Resume() {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [totalByCategory, setTotalByCategory] = useState<CategoryData[]>([])
 
+  const { user } = useAuth()
+
   const { colors } = useTheme()
 
   function handleChangeDate(action: 'next' | 'prev') {
@@ -57,7 +60,7 @@ export function Resume() {
   }
 
   async function loadData() {
-    const dataKey = '@gofinances:transactions'
+    const dataKey = `@gofinances:transactions_user:${user.id}`
     const response = await AsyncStorage.getItem(dataKey)
     const responseFormated: TransactionData[] = response
       ? JSON.parse(response)

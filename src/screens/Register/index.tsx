@@ -21,6 +21,7 @@ import {
   Fields,
   TransactionTypes,
 } from './styles'
+import { useAuth } from '../../hooks/Auth'
 
 interface FormData {
   name: string
@@ -36,8 +37,6 @@ const schema = yup.object().shape({
     .positive('O valor não pode ser negativo'),
 })
 
-const dataKey = '@gofinances:transactions'
-
 export function Register() {
   const navigation = useNavigation()
 
@@ -47,6 +46,8 @@ export function Register() {
   })
   const [transactionType, setTransactionType] = useState('')
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
+  const { user } = useAuth()
+  const dataKey = `@gofinances:transactions_user:${user.id}`
 
   const {
     control,
